@@ -128,6 +128,6 @@ Test license data should be used in *mdz_ansi_alg_init()* call for library initi
 [Performance Comparison]: #performance-comparison
 [maxdz Shop]: https://maxdz.com/shop.php
 
-#### Code Example (low-level use)
+#### Code Example
 
 *mdz_ansi_alg_init()* with license information should be called for library initialization before any subsequent calls:
