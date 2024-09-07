@@ -78,13 +78,8 @@ bmh = MDZ_FIND_BMH method
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
 | Test  | mdz_ansi_alg, monotone | mdz_ansi_alg, clib | mdz_ansi_alg, brute |  mdz_ansi_alg, bmh |std::string.find() | clib (strstr())|
-| :---:| ---: | ---: | ---: | ---: | ---: | ---: |
-
-- MinGW/gcc toolset (32-bit)<br>
-(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
-
-| Test  | mdz_ansi_alg, monotone | mdz_ansi_alg, clib | mdz_ansi_alg, brute |  mdz_ansi_alg, bmh |
-| :---:| ---: | ---: | ---: | ---: |
+| :----:| ---------------------: | -----------------: | ------------------: | -----------------: | ----------------: | -------------: |
+| 100M-100/100M| 1,262,919      | 10,884,012         | 14,182,350           | **721,370**      | 14,150,110 | 10,383,086 |
 
 - **mdz_ansi_alg_firstOf() Test**
 
