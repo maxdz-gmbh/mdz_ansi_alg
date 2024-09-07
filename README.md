@@ -8,9 +8,6 @@
 [Licensing info](#Licensing-info)<br>
 
 ## mdz_ansi_alg Overview
-Wiki: [mdz_ansi_alg Wiki]<br>
-file: *"mdz_ansi_alg.h"*
-
 Please take a look at *"mdz_ansi_alg.h"* file or [mdz_ansi_alg Wiki] site for detailed functions descriptions.
 
 [mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki
