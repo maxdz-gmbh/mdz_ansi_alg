@@ -13,7 +13,7 @@ file: *"mdz_ansi_alg.h"*
 
 Please take a look at *"mdz_ansi_alg.h"* file or [mdz_ansi_alg Wiki] site for detailed functions descriptions.
 
-[mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg-overview
+[mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki
 
 [mdz_ansi_alg] - is a very lightweight, versatile and speedy C  library for handling single-byte (ASCII/ANSI) strings, developed by [maxdz Software GmbH]. Source code of library is highly-portable, conforms to ANSI C 89/90 Standard.
 
@@ -125,7 +125,7 @@ Test license data should be used in *mdz_ansi_alg_init()* call for library initi
 
 **NOTE:** All 0.x releases are kind of "beta-versions" and can be used 1) only with test-license (during test period of 30 days, with necessity to re-generate license for the next 30 days test period) and 2) without expectations of interface backward-compatibility.
 
-[mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg-overview
+[mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki
 [Glib]: https://en.wikipedia.org/wiki/GLib
 [STL]: https://en.wikipedia.org/wiki/Standard_Template_Library
 [Performance Comparison]: #performance-comparison
