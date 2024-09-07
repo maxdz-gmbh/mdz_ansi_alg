@@ -56,14 +56,7 @@ Performance comparison tables for *[mdz_ansi_alg_find]*() and *[mdz_ansi_alg_fir
 
 Following tests are executed:
 
-- Test *1/100M*": Find 1 byte - in the end of 100M bytes long string<br>
-- Test *5/100M*": Find 5 bytes long string - in the end of 100M bytes long string<br>
-- Test *10/100M*": Find 10 bytes long string - in the end of 100M bytes long string<br>
-- Test *100/100M*": Find 100 bytes long string - in the end of 100M bytes long string<br>
-- Test *1K/100M*": Find 1K bytes long string - in the end of 100M bytes long string<br>
-- Test *500K/1M*": Find 500K bytes long string - in the end of 1M bytes long string<br>
-- Test *100M-100/100M*": Find "100M minus 100" bytes long string - in the end of 100M bytes long string<br>
-- Test *100M/100M*": Find 100M bytes long string - in 100M bytes long string<br>
+- Test *100M-100/100M*": Find "100M minus 100" (99,999,900) bytes long string - in the end of 100M bytes long string<br>
 
 For **Windows 10 (64-bit)** on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
 
@@ -79,7 +72,7 @@ bmh = MDZ_FIND_BMH method
 
 | Test  | mdz_ansi_alg, monotone | mdz_ansi_alg, clib | mdz_ansi_alg, brute |  mdz_ansi_alg, bmh |std::string.find() | clib (strstr())|
 | :----:| ---------------------: | -----------------: | ------------------: | -----------------: | ----------------: | -------------: |
-| 100M-100/100M| 1,262,919      | 10,884,012         | 14,182,350           | **721,370**      | 14,150,110 | 10,383,086 |
+| 100M-100/100M|           |               |                | **721,370**      | 14,150,110 | 10,383,086 |
 
 - **mdz_ansi_alg_firstOf() Test**
 
