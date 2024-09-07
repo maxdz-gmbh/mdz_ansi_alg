@@ -119,3 +119,9 @@ Test license data should be used in *mdz_ansi_alg_init()* call for library initi
 #### Code Example
 
 *mdz_ansi_alg_init()* with license information should be called for library initialization before any subsequent calls:
+
+## Licensing info
+
+Use of **mdz_ansi_alg** library is regulated by license agreement in *LICENSE.txt*
+
+Basically private non-commercial "test" usage is unrestricted. Commercial usage of library (incl. its source code) will be regulated by according license agreement.
