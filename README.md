@@ -52,7 +52,7 @@ Comparison tables for *mdz_ansi_alg_find()*, *mdz_ansi_alg_firstOf()* are here [
 
 Performance comparison tables for *[mdz_ansi_alg_find]*() and *[mdz_ansi_alg_firstOf]*() give an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
 
-- **[mdz_ansi_alg_find]() Test**
+- **mdz_ansi_alg_find() Test**
 
 Following tests are executed:
 
@@ -86,7 +86,7 @@ bmh = MDZ_FIND_BMH method
 | Test  | mdz_ansi_alg, monotone | mdz_ansi_alg, clib | mdz_ansi_alg, brute |  mdz_ansi_alg, bmh |
 | :---:| ---: | ---: | ---: | ---: |
 
-- **[mdz_ansi_alg_firstOf]() Test**
+- **mdz_ansi_alg_firstOf() Test**
 
 Following tests are executed:
 
