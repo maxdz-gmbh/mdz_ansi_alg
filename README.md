@@ -120,6 +120,7 @@ Test license data should be used in *mdz_ansi_alg_init()* call for library initi
 
 file "test.c"
 
+```
 #include <mdz_ansi_alg.h>
 
 #include <string.h>
@@ -197,6 +198,7 @@ int main(void)
 
   return 0;
 }
+```
 
 ## Licensing info
 
