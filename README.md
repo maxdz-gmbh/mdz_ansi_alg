@@ -139,62 +139,80 @@ int main(void)
   unsigned long pnEmailHash[] = { 1664168760, 926364770, 892483635, 858992946, 946103604, 862072881, 909534821, 1633969205, 909534263, 842032181, 808477793, 842348343, 926431287, 1630955105, 925918309, 858940465 };
   unsigned long pnLicenseHash[] = { 1714436406, 892680550, 942945078, 912339761, 1647916344, 959930724, 878863973, 912339761, 912666723, 1664181297, 1681155683, 828782131, 862073442, 912418357, 1667588913, 862217011 };
 
-  if (mdz_false == mdz_ansi_alg_init(pnFirstNameHash, pnLastNameHash, pnEmailHash, pnLicenseHash)) /* library/license initialization, must be called before any other library function */
+  /* library/license initialization, must be called before any other library function */
+  if (mdz_false == mdz_ansi_alg_init(pnFirstNameHash, pnLastNameHash, pnEmailHash, pnLicenseHash)) 
   {
     return 0;
   }
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_insert(pcBuffer, &nSize, nCapacity, nSize, "9876543210", 10)) /* pcBuffer is "01234567899876543210\0" after this; nSize is set into new size 20 */
+  /* after call: pcBuffer is "01234567899876543210\0" after this; nSize is set into new size 20 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_insert(pcBuffer, &nSize, nCapacity, nSize, "9876543210", 10)) 
   {
     return 0;
   }
 
-  nPosition = mdz_ansi_alg_findSingle(pcBuffer, 0, 10, '4', &enError); /* nPosition is 4; enError set in MDZ_ERROR_NONE (0) */
+  /* after call: nPosition is 4; enError set in MDZ_ERROR_NONE (0) */
+  nPosition = mdz_ansi_alg_findSingle(pcBuffer, 0, 10, '4', &enError); 
 
-  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, MDZ_ANSI_FIND_BMH, &enError); /* nPosition is 9; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 9; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, MDZ_ANSI_FIND_BMH, &enError); 
 
-  nPosition = mdz_ansi_alg_rfindSingle(pcBuffer, 0, nSize - 1, '4', &enError); /* nPosition is 15; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 15; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_rfindSingle(pcBuffer, 0, nSize - 1, '4', &enError); 
 
-  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, MDZ_ANSI_FIND_BMH, &enError); /* nPosition is 10; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 10; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, MDZ_ANSI_FIND_BMH, &enError); 
 
-  nPosition = mdz_ansi_alg_firstOf(pcBuffer, 0, nSize - 1, "43", 2, &enError); /* nPosition is 3; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 3; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_firstOf(pcBuffer, 0, nSize - 1, "43", 2, &enError); 
 
-  nPosition = mdz_ansi_alg_firstNotOf(pcBuffer, 0, nSize - 1, "3210", 4, &enError); /* nPosition is 4; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 4; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_firstNotOf(pcBuffer, 0, nSize - 1, "3210", 4, &enError); 
 
-  nPosition = mdz_ansi_alg_lastOf(pcBuffer, 0, nSize - 1, "34", 4, &enError); /* nPosition is 16; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 16; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_lastOf(pcBuffer, 0, nSize - 1, "34", 4, &enError); 
 
-  nPosition = mdz_ansi_alg_lastNotOf(pcBuffer, 0, nSize - 1, "0123", 4, &enError); /* nPosition is 15; enError set in MDZ_ERROR_NONE */
+  /* after call: nPosition is 15; enError set in MDZ_ERROR_NONE */
+  nPosition = mdz_ansi_alg_lastNotOf(pcBuffer, 0, nSize - 1, "0123", 4, &enError); 
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_removeFrom(pcBuffer, &nSize, 2, 3)) /* pcBuffer is "01567899876543210\0" after this; nSize set in new size 17 */
+  /* after call: pcBuffer is "01567899876543210\0" after this; nSize set in new size 17 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_removeFrom(pcBuffer, &nSize, 2, 3)) 
   {
     return 0;
   }
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_remove(pcBuffer, &nSize, 0, nSize - 1, "99", 2)) /* pcBuffer is "015678876543210\0" after this; nSize set in new size 15 */
+  /* after call: pcBuffer is "015678876543210\0" after this; nSize set in new size 15 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_remove(pcBuffer, &nSize, 0, nSize - 1, "99", 2)) 
   {
     return 0;
   }
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimLeft(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) /* pcBuffer is "5678876543210\0" after this; nSize set in new size 13 */
+  /* after call: pcBuffer is "5678876543210\0" after this; nSize set in new size 13 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimLeft(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
   {
     return 0;
   }
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimRight(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) /* pcBuffer is "5678876543\0" after this; nSize set in new size 10 */
+  /* after call: pcBuffer is "5678876543\0" after this; nSize set in new size 10 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimRight(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
   {
     return 0;
   }
 
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trim(pcBuffer, &nSize, 0, nSize - 1, "012345", 6)) /* pcBuffer is "678876\0" after this; nSize set in new size 6 */
+  /* after call: pcBuffer is "678876\0" after this; nSize set in new size 6 */
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trim(pcBuffer, &nSize, 0, nSize - 1, "012345", 6)) 
   {
     return 0;
   }
 
-  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_false, &enError); /* enCompareResult is MDZ_ANSI_COMPARE_NONEQUAL (1); enError set in MDZ_ERROR_NONE */
+  /* after call: enCompareResult is MDZ_ANSI_COMPARE_NONEQUAL (1); enError set in MDZ_ERROR_NONE */
+  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_false, &enError); 
 
-  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_true, &enError); /* enCompareResult is MDZ_ANSI_COMPARE_EQUAL (0); enError set in MDZ_ERROR_NONE */
+  /* after call: enCompareResult is MDZ_ANSI_COMPARE_EQUAL (0); enError set in MDZ_ERROR_NONE */
+  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_true, &enError); 
   
-  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, MDZ_ANSI_FIND_BMH, mdz_true, &enError); /* nCount is 2; enError set in MDZ_ERROR_NONE */
+  /* after call: nCount is 2; enError set in MDZ_ERROR_NONE */
+  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, MDZ_ANSI_FIND_BMH, mdz_true, &enError); 
 
   return 0;
 }
