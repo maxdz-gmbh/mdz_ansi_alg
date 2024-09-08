@@ -145,7 +145,7 @@ int main(void)
     return 0;
   }
 
-  /* after this call: pcBuffer is "01234567899876543210\0" after this; nSize is set into new size 20 */
+  /* after this call: pcBuffer is "01234567899876543210\0"; nSize is set into new size 20 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_insert(pcBuffer, &nSize, nCapacity, nSize, "9876543210", 10)) 
   {
     return 0;
@@ -175,31 +175,31 @@ int main(void)
   /* after this call: nPosition is 15; enError set in MDZ_ERROR_NONE */
   nPosition = mdz_ansi_alg_lastNotOf(pcBuffer, 0, nSize - 1, "0123", 4, &enError); 
 
-  /* after this call: pcBuffer is "01567899876543210\0" after this; nSize set in new size 17 */
+  /* after this call: pcBuffer is "01567899876543210\0"; nSize set in new size 17 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_removeFrom(pcBuffer, &nSize, 2, 3)) 
   {
     return 0;
   }
 
-  /* after this call: pcBuffer is "015678876543210\0" after this; nSize set in new size 15 */
+  /* after this call: pcBuffer is "015678876543210\0"; nSize set in new size 15 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_remove(pcBuffer, &nSize, 0, nSize - 1, "99", 2)) 
   {
     return 0;
   }
 
-  /* after this call: pcBuffer is "5678876543210\0" after this; nSize set in new size 13 */
+  /* after this call: pcBuffer is "5678876543210\0"; nSize set in new size 13 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_trimLeft(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
   {
     return 0;
   }
 
-  /* after this call: pcBuffer is "5678876543\0" after this; nSize set in new size 10 */
+  /* after this call: pcBuffer is "5678876543\0"; nSize set in new size 10 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_trimRight(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
   {
     return 0;
   }
 
-  /* after this call: pcBuffer is "678876\0" after this; nSize set in new size 6 */
+  /* after this call: pcBuffer is "678876\0"; nSize set in new size 6 */
   if (MDZ_ERROR_NONE != mdz_ansi_alg_trim(pcBuffer, &nSize, 0, nSize - 1, "012345", 6)) 
   {
     return 0;
