@@ -121,13 +121,13 @@ int main(void)
   nPosition = mdz_ansi_alg_findSingle(pcBuffer, 0, 10, '4', &enError); 
 
   /* after this call: nPosition is 9; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, MDZ_ANSI_FIND_BMH, &enError); 
+  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, &enError); 
 
   /* after this call: nPosition is 15; enError set in MDZ_ERROR_NONE */
   nPosition = mdz_ansi_alg_rfindSingle(pcBuffer, 0, nSize - 1, '4', &enError); 
 
   /* after this call: nPosition is 10; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, MDZ_ANSI_FIND_BMH, &enError); 
+  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, &enError); 
 
   /* after this call: nPosition is 3; enError set in MDZ_ERROR_NONE */
   nPosition = mdz_ansi_alg_firstOf(pcBuffer, 0, nSize - 1, "43", 2, &enError); 
@@ -178,7 +178,7 @@ int main(void)
   enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_true, &enError); 
   
   /* after this call: nCount is 2; enError set in MDZ_ERROR_NONE */
-  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, MDZ_ANSI_FIND_BMH, mdz_true, &enError); 
+  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, mdz_true, &enError); 
 
   return 0;
 }
