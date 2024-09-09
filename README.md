@@ -53,9 +53,7 @@ Comparison tables for *mdz_ansi_alg_find()*, *mdz_ansi_alg_firstOf()* are here [
 Performance comparison table for *[mdz_ansi_alg_find]*() gives an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
 
 For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
-- VC++ toolset v140
-- SSE2 enchancements are activated for 32-bit test
-- AVX2 enchancements are activated for 64-bit test<br>
+- VC++ toolset v140; SSE2 enchancements are activated for 32-bit test; AVX2 enchancements are activated for 64-bit test<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
 - **mdz_ansi_alg_find() Test**
