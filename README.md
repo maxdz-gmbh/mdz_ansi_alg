@@ -56,8 +56,7 @@ Performance comparison table for *[mdz_ansi_alg_find]*() gives an idea about *md
 
 For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
 
-**32-bit test**
-Following tests are executed:
+Following **32-bit tests** are executed:
 - Test *100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
 
 - VC++ toolset v140, SSE2 enchancements are activated<br>
@@ -67,8 +66,7 @@ Following tests are executed:
 | :----:| -----------------: | ----------------: | -------------: |
 | 100M-100/100M| **681,259**      | 14,923,163 | 11,181,341 |
 
-**64-bit test**
-Following tests are executed:
+Following **64-bit tests** are executed:
 - Test *3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
 
 - VC++ toolset v140, AVX2 enchancements are activated<br>
