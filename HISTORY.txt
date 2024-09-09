@@ -1,0 +1,26 @@
+09.09.2024: Release 0.1
+-----------------------
+
+Added functions:
+
+- mdz_ansi_alg_init
+
+- mdz_ansi_alg_insert
+
+- mdz_ansi_alg_findSingle
+- mdz_ansi_alg_find
+- mdz_ansi_alg_rfindSingle
+- mdz_ansi_alg_rfind
+- mdz_ansi_alg_firstOf
+- mdz_ansi_alg_firstNotOf
+- mdz_ansi_alg_lastOf
+- mdz_ansi_alg_lastNotOf
+
+- mdz_ansi_alg_removeFrom
+- mdz_ansi_alg_remove
+- mdz_ansi_alg_trimLeft
+- mdz_ansi_alg_trimRight
+- mdz_ansi_alg_trim
+  
+- mdz_ansi_alg_compare  
+- mdz_ansi_alg_count
