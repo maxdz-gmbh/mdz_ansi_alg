@@ -52,31 +52,34 @@ Comparison tables for *mdz_ansi_alg_find()*, *mdz_ansi_alg_firstOf()* are here [
 
 Performance comparison table for *[mdz_ansi_alg_find]*() gives an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
 
+For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
+- VC++ toolset v140, SSE2 enchancements are activated for 32-bit test, AVX2 enchancements are activated for 64-bit test<br>
+(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
+
 - **mdz_ansi_alg_find() Test**
 
-For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
-
-Following **32-bit tests** are executed:
-- Test *100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
-
-- VC++ toolset v140, SSE2 enchancements are activated<br>
-(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
+Following tests are executed:
+- 32-bit test *100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
+- 64-bit test *3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
 
 | Test  | mdz_ansi_alg_find() |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
 | 100M-100/100M| **681,259**      | 14,923,163 | 11,181,341 |
-
-Following **64-bit tests** are executed:
-- Test *3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
-
-- VC++ toolset v140, AVX2 enchancements are activated<br>
-(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
-
-| Test  | mdz_ansi_alg_find() |std::string.find() | clib (strstr())|
-| :----:| -----------------: | ----------------: | -------------: |
 | 3G-100/3G| **19,509,757**      | 359,457,282 | 322,119,234 |
 
+- **mdz_ansi_alg_firstOf() Test**
+
+Following tests are executed:
+- 32-bit test *100M/150*": Find first of 150 items in 100M (100,000,000) bytes long string<br>
+- 64-bit test *3G/150*": Find first of 150 items in 3G (3,000,000,000) bytes long string<br>
+
+| Test  | mdz_ansi_alg_firstOf() |std::string.find_first_of() | clib (strcspn())|
+| :----:| -----------------: | ----------------: | -------------: |
+| 100M/150| **331,853**      | 43,824,190 | 2,394,748 |
+| 3G/150| **8,571,427**      | 1,590,268,614 | 24,277,950 |
+
 [mdz_ansi_alg_find]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_find
+[mdz_ansi_alg_firstOf]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_firstOf
 
 ## mdz_ansi_alg Usage
 
