@@ -62,7 +62,7 @@ Following **32-bit tests** are executed:
 - VC++ toolset v140, SSE2 enchancements are activated<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
-| Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
+| Test  | mdz_ansi_alg_find() |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
 | 100M-100/100M| **681,259**      | 14,923,163 | 11,181,341 |
 
@@ -72,7 +72,7 @@ Following **64-bit tests** are executed:
 - VC++ toolset v140, AVX2 enchancements are activated<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
-| Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
+| Test  | mdz_ansi_alg_find() |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
 | 3G-100/3G| **19,509,757**      | 359,457,282 | 322,119,234 |
 
