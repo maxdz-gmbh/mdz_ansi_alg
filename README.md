@@ -50,7 +50,7 @@ Comparison tables for *mdz_ansi_alg_find()*, *mdz_ansi_alg_firstOf()* are here [
 
 ## Performance Comparison
 
-Performance comparison tables for *[mdz_ansi_alg_find]*() and *[mdz_ansi_alg_firstOf]*() give an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
+Performance comparison tables for *[mdz_ansi_alg_find]*() give an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
 
 - **mdz_ansi_alg_find() Test**
 
@@ -60,50 +60,16 @@ Following tests are executed:
 
 For **Windows 10 (64-bit)** on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
 
-**Monotone test** : "long string" and "string to find" are both filled with '1's; on the last position of both strings is '2'
-
-monotone = MDZ_FIND_MONOTONE method<br>
-clib = MDZ_FIND_CLIB method (standard C library)<br>
-brute = MDZ_FIND_BRUTE method<br>
-bmh = MDZ_FIND_BMH method
-
 - VC++ toolset v140 (32-bit)<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
-| Test  | mdz_ansi_alg, monotone | mdz_ansi_alg, clib | mdz_ansi_alg, brute |  mdz_ansi_alg, bmh |std::string.find() | clib (strstr())|
-| :----:| ---------------------: | -----------------: | ------------------: | -----------------: | ----------------: | -------------: |
-| 100M-100/100M| 1,456,776          |  10,884,012             |  14,182,350              | **697,662**      | 14,150,110 | 10,383,086 |
-
-- **mdz_ansi_alg_firstOf() Test**
-
-Following tests are executed:
-
-- Test *1/100M*": Find first of 1 byte - in the end of 100M bytes long string<br>
-- Test *5/100M*": Find first of 5 bytes - in the end of 100M bytes long string<br>
-- Test *20/100M*": Find first of 20 bytes - in the end of 100M bytes long string<br>
-- Test *50/100M*": Find first of 50 bytes - in the end of 100M bytes long string<br>
-- Test *100/100M*": Find first of 100 bytes - in the end of 100M bytes long string<br>
-
-For **Windows 10 (64-bit)** on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
-
-- VC++ toolset v140 (32-bit)<br>
-(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
-
-| Test  | mdz_ansi_alg| std::string.find_first_of() | clib (strcspn())|
-| :---:| ---: | ---: | ---: |
-
-- MinGW/gcc toolset (32-bit)<br>
-(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
-
-| Test  | mdz_ansi_alg|
-| :---:| ---: |
+| Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
+| :----:| -----------------: | ----------------: | -------------: |
+| 100M-100/100M| **697,662**      | 14,150,110 | 10,383,086 |
 
 [mdz_ansi_alg_find]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_find
-[mdz_ansi_alg_firstOf]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_firstOf
 
 ## mdz_ansi_alg Usage
-
-The functions are implemented with strict input parameters checking. It means *mdz_false* or some other error indication will be returned if one or several input parameters are invalid - even if such an invalidity doesn't lead to inconsistence (for example adding or removing 0 items).<br>
 
 **Test license generation:** - in order to get free test-license, please proceed to our Shop page [maxdz Shop] and register an account. After registration you will be able to obtain free 14-days test-licenses for our products using "Obtain for free" button. 
 Test license data should be used in *mdz_ansi_alg_init()* call for library initialization.
