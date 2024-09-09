@@ -399,7 +399,6 @@ extern "C"
    * \param nRightPos        - 0-based end position to search up to. Use Size-1 to search till the end of string
    * \param pcItems          - items to find. Cannot be NULL
    * \param nCount           - number of items to find. Cannot be 0
-   * \param enFindMethod     - find method to use. See details in mdz_ansi_find_method description (mdz_ansi_find_method.h header)
    * \param bAllowOverlapped - mdz_true if overlapped substrings should be counted, otherwise mdz_false
    * \param penError         - if not NULL, error will be written there. There are following errors possible:
    * \value:
