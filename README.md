@@ -50,7 +50,7 @@ Comparison tables for *mdz_ansi_alg_find()*, *mdz_ansi_alg_firstOf()* are here [
 
 ## Performance Comparison
 
-Performance comparison tables for *[mdz_ansi_alg_find]*() give an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
+Performance comparison table for *[mdz_ansi_alg_find]*() gives an idea about *mdz_ansi_alg* library overall performance on different platforms compared to STL and standard C library. Modern implementations of STL and standard C library are pretty fast, using optimized versions of memory-access functions.
 
 - **mdz_ansi_alg_find() Test**
 
