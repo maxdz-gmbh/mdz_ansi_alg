@@ -60,12 +60,12 @@ Following tests are executed:
 
 For **Windows 10 (64-bit)** on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
 
-- VC++ toolset v140 (32-bit)<br>
+- VC++ toolset v140 (32-bit), SSE2 enchancements are activated<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
 | Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
-| 100M-100/100M| **697,662**      | 14,150,110 | 10,383,086 |
+| 100M-100/100M| **681,259**      | 14,923,163 | 11,181,341 |
 
 [mdz_ansi_alg_find]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_find
 
