@@ -59,8 +59,8 @@ For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
 - **mdz_ansi_alg_find() Test**
 
 Following tests are executed:
-- 32-bit test *100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
-- 64-bit test *3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
+- 32-bit test "*100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
+- 64-bit test "*3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
 
 | Test  | mdz_ansi_alg_find() |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
@@ -70,8 +70,8 @@ Following tests are executed:
 - **mdz_ansi_alg_firstOf() Test**
 
 Following tests are executed:
-- 32-bit test *100M/150*": Find first of 150 items in 100M (100,000,000) bytes long string<br>
-- 64-bit test *3G/150*": Find first of 150 items in 3G (3,000,000,000) bytes long string<br>
+- 32-bit test "*100M/150*": Find first of 150 items in 100M (100,000,000) bytes long string<br>
+- 64-bit test "*3G/150*": Find first of 150 items in 3G (3,000,000,000) bytes long string<br>
 
 | Test  | mdz_ansi_alg_firstOf() |std::string.find_first_of() | clib (strcspn())|
 | :----:| -----------------: | ----------------: | -------------: |
