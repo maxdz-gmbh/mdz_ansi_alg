@@ -54,18 +54,29 @@ Performance comparison table for *[mdz_ansi_alg_find]*() gives an idea about *md
 
 - **mdz_ansi_alg_find() Test**
 
+For Windows 10 (64-bit) on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
+
+**32-bit test**
 Following tests are executed:
+- Test *100M-100/100M*": Find 100M minus 100 (99,999,900) in 100M (100,000,000) bytes long string<br>
 
-- Test *100M-100/100M*": Find "100M minus 100" (99,999,900) bytes long string - in the end of 100M bytes long string<br>
-
-For **Windows 10 (64-bit)** on *Intel i5-6600 @ 3.30GHz (4 cores/4 threads)*<br>
-
-- VC++ toolset v140 (32-bit), SSE2 enchancements are activated<br>
+- VC++ toolset v140, SSE2 enchancements are activated<br>
 (all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
 
 | Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
 | :----:| -----------------: | ----------------: | -------------: |
 | 100M-100/100M| **681,259**      | 14,923,163 | 11,181,341 |
+
+**64-bit test**
+Following tests are executed:
+- Test *3G-100/3G*": Find 3G minus 100 (2,999,999,900) in 3G (3,000,000,000) bytes long string<br>
+
+- VC++ toolset v140, AVX2 enchancements are activated<br>
+(all numbers are in microseconds measured using *QueryPerformanceCounter()* in main execution thread)
+
+| Test  | mdz_ansi_alg |std::string.find() | clib (strstr())|
+| :----:| -----------------: | ----------------: | -------------: |
+| 3G-100/3G| **19,509,757**      | 359,457,282 | 322,119,234 |
 
 [mdz_ansi_alg_find]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki/mdz_ansi_alg_find
 
