@@ -16,12 +16,12 @@ Please take a look at *"mdz_ansi_alg.h"* C header file or [mdz_ansi_alg Wiki] si
 
 Only shared/dynamically loaded libraries (*.so* and *.dll* files with import libraries) are available for evaluation testing purposes. Static libraries are covered by our commercial licenses.
 
-**Linux** binaries are built against Linux Kernel 2.6.18 - and thus should be compatible with Debian (from ver. 4.0), Ubuntu (from ver. 8.04), Fedora (from ver. 9)
-
-**FreeBSD** binaries - may be used from FreeBSD ver. 7.0
-
 **Win32** binaries are built using Visual Studio Platform Toolset "v90", thus are compatible with Windows versions from Windows 2000.<br>
 **Win64** binaries are built using Visual Studio Platform Toolset "v100", thus are compatible with Windows versions from Windows XP (64-bit).<br>
+
+**Linux** binaries are built against Linux Kernel 2.6.17 - and thus should be compatible with Debian (from ver. 4), Ubuntu (from ver. 6.10), Fedora (from ver. 9), Red Hat/CentOS (from ver. 5)
+
+**FreeBSD** binaries - may be used from FreeBSD ver. 7.0
 
 **Android** x86/armeabi-v7a binaries - may be used from Android API level 16 ("Jelly Bean" ver. 4.1.x)<br>
 **Android** x86_64/arm64-v8a binaries - may be used from Android API level 21 ("Lollipop" ver. 5.0)
