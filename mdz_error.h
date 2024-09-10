@@ -86,7 +86,7 @@ enum mdz_error
   /**
    * Data and Items overlap
    */
-  MDZ_ERROR_OVERLAP /* = 13 */,
+  MDZ_ERROR_OVERLAP /* = 13 */
 };
 
 #endif
