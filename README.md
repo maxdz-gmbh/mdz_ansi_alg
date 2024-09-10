@@ -16,7 +16,7 @@ Please take a look at *"mdz_ansi_alg.h"* C header file or [mdz_ansi_alg Wiki] si
 
 Only shared/dynamically loaded libraries (*.so* and *.dll* files with import libraries) are available for evaluation testing purposes. Static libraries are covered by our commercial licenses.
 
-**Linux** binaries are built against Linux Kernel 2.6.18 - and thus should be compatible with Debian (from ver. 4.0), Ubuntu (from ver. 8.04), Fedora (from ver. 9)
+**Linux** binaries are built against Linux Kernel 2.6.17 - and thus should be compatible with Debian (from ver. 4), Ubuntu (from ver. 6.10), Fedora (from ver. 9), Red Hat/CentOS (from ver. 5)
 
 **FreeBSD** binaries - may be used from FreeBSD ver. 7.0
 
