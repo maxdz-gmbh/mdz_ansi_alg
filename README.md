@@ -21,7 +21,7 @@ Only shared/dynamically loaded libraries (*.so* and *.dll* files with import lib
 
 **Linux** binaries are built against Linux Kernel 2.6.17 - and thus should be compatible with Debian (from ver. 4), Ubuntu (from ver. 6.10), Fedora (from ver. 9), Red Hat/CentOS (from ver. 5)
 
-**FreeBSD** binaries - may be used from FreeBSD ver. 7.0
+**FreeBSD** binaries - may be used from FreeBSD ver. 7.0 (for x86) and ver. 8.0 (for x64)
 
 **Android** x86/armeabi-v7a binaries - may be used from Android API level 16 ("Jelly Bean" ver. 4.1.x)<br>
 **Android** x86_64/arm64-v8a binaries - may be used from Android API level 21 ("Lollipop" ver. 5.0)
