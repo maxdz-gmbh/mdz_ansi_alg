@@ -23,10 +23,10 @@ Only shared/dynamically loaded libraries (*.so* and *.dll* files with import lib
 
 **FreeBSD** binaries - may be used from FreeBSD ver. 7.0 (for x86) and ver. 8.0 (for x64)
 
-**Android** x86/armeabi-v7a binaries - may be used from Android API level 16 ("Jelly Bean" ver. 4.1.x)<br>
-**Android** x86_64/arm64-v8a binaries - may be used from Android API level 21 ("Lollipop" ver. 5.0)
+~~**Android** x86/armeabi-v7a binaries - may be used from Android API level 16 ("Jelly Bean" ver. 4.1.x)<br>~~
+~~**Android** x86_64/arm64-v8a binaries - may be used from Android API level 21 ("Lollipop" ver. 5.0)~~
 
-**macOS** binaries - x86_64, from *MacOS X v10.6.0*
+~~**macOS** binaries - x86_64, from *MacOS X v10.6.0*~~
 
 [mdz_ansi_alg]: https://github.com/maxdz-gmbh/mdz_ansi_alg
 [maxdz Software GmbH]: https://maxdz.com/
