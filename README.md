@@ -102,12 +102,14 @@ file "test.c"
 #include <mdz_ansi_alg.h>
 
 #include <string.h>
+#include <assert.h>
 
 int main(void)
 {
   char pcBuffer[100] = "0123456789";
   size_t nSize = strlen(pcBuffer);
   size_t nCapacity = sizeof(pcBuffer) - 1;
+
   size_t nPosition, nCount;
   enum mdz_error enError;
   enum mdz_ansi_compare_result enCompareResult;
@@ -118,79 +120,96 @@ int main(void)
   unsigned long pnLicenseHash[] = { /* your personal license hash */ };
 
   /* library/license initialization, must be called before any other library function */
-  if (mdz_false == mdz_ansi_alg_init(pnFirstNameHash, pnLastNameHash, pnEmailHash, pnLicenseHash)) 
+  if (mdz_false == mdz_ansi_alg_init(pnFirstNameHash, pnLastNameHash, pnEmailHash, pnLicenseHash))
   {
     return 0;
   }
 
-  /* after this call: pcBuffer is "01234567899876543210\0"; nSize is set into new size 20 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_insert(pcBuffer, &nSize, nCapacity, nSize, "9876543210", 10)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_insert(pcBuffer, &nSize, nCapacity, nSize, "9876543210", 10))
   {
     return 0;
   }
+  assert(20 == nSize);
+  assert(0 == strcmp(pcBuffer, "01234567899876543210"));
 
-  /* after this call: nPosition is 4; enError set in MDZ_ERROR_NONE (0) */
-  nPosition = mdz_ansi_alg_findSingle(pcBuffer, 0, 10, '4', &enError); 
+  nPosition = mdz_ansi_alg_findSingle(pcBuffer, 0, 10, '4', &enError);
+  assert(4 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 9; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, &enError); 
+  nPosition = mdz_ansi_alg_find(pcBuffer, 0, nSize - 1, "99", 2, &enError);
+  assert(9 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 15; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_rfindSingle(pcBuffer, 0, nSize - 1, '4', &enError); 
+  nPosition = mdz_ansi_alg_rfindSingle(pcBuffer, 0, nSize - 1, '4', &enError);
+  assert(15 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 10; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, &enError); 
+  nPosition = mdz_ansi_alg_rfind(pcBuffer, 0, nSize - 1, "9", 1, &enError);
+  assert(10 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 3; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_firstOf(pcBuffer, 0, nSize - 1, "43", 2, &enError); 
+  nPosition = mdz_ansi_alg_firstOf(pcBuffer, 0, nSize - 1, "43", 2, &enError);
+  assert(3 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 4; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_firstNotOf(pcBuffer, 0, nSize - 1, "3210", 4, &enError); 
+  nPosition = mdz_ansi_alg_firstNotOf(pcBuffer, 0, nSize - 1, "3210", 4, &enError);
+  assert(4 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 16; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_lastOf(pcBuffer, 0, nSize - 1, "34", 4, &enError); 
+  nPosition = mdz_ansi_alg_lastOf(pcBuffer, 0, nSize - 1, "34", 4, &enError);
+  assert(16 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: nPosition is 15; enError set in MDZ_ERROR_NONE */
-  nPosition = mdz_ansi_alg_lastNotOf(pcBuffer, 0, nSize - 1, "0123", 4, &enError); 
+  nPosition = mdz_ansi_alg_lastNotOf(pcBuffer, 0, nSize - 1, "0123", 4, &enError);
+  assert(15 == nPosition);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: pcBuffer is "01567899876543210\0"; nSize set in new size 17 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_removeFrom(pcBuffer, &nSize, 2, 3)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_removeFrom(pcBuffer, &nSize, 2, 3))
   {
     return 0;
   }
+  assert(17 == nSize);
+  assert(0 == strcmp(pcBuffer, "01567899876543210"));
 
-  /* after this call: pcBuffer is "015678876543210\0"; nSize set in new size 15 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_remove(pcBuffer, &nSize, 0, nSize - 1, "99", 2)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_remove(pcBuffer, &nSize, 0, nSize - 1, "99", 2))
   {
     return 0;
   }
+  assert(15 == nSize);
+  assert(0 == strcmp(pcBuffer, "015678876543210"));
 
-  /* after this call: pcBuffer is "5678876543210\0"; nSize set in new size 13 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimLeft(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimLeft(pcBuffer, &nSize, 0, nSize - 1, "012", 3))
   {
     return 0;
   }
+  assert(13 == nSize);
+  assert(0 == strcmp(pcBuffer, "5678876543210"));
 
-  /* after this call: pcBuffer is "5678876543\0"; nSize set in new size 10 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimRight(pcBuffer, &nSize, 0, nSize - 1, "012", 3)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trimRight(pcBuffer, &nSize, 0, nSize - 1, "012", 3))
   {
     return 0;
   }
+  assert(10 == nSize);
+  assert(0 == strcmp(pcBuffer, "5678876543"));
 
-  /* after this call: pcBuffer is "678876\0"; nSize set in new size 6 */
-  if (MDZ_ERROR_NONE != mdz_ansi_alg_trim(pcBuffer, &nSize, 0, nSize - 1, "012345", 6)) 
+  if (MDZ_ERROR_NONE != mdz_ansi_alg_trim(pcBuffer, &nSize, 0, nSize - 1, "012345", 6))
   {
     return 0;
   }
+  assert(6 == nSize);
+  assert(0 == strcmp(pcBuffer, "678876"));
 
-  /* after this call: enCompareResult is MDZ_ANSI_COMPARE_NONEQUAL (1); enError set in MDZ_ERROR_NONE */
-  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_false, &enError); 
+  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_false, &enError);
+  assert(MDZ_ANSI_COMPARE_NONEQUAL == enCompareResult);
+  assert(MDZ_ERROR_NONE == enError);
 
-  /* after this call: enCompareResult is MDZ_ANSI_COMPARE_EQUAL (0); enError set in MDZ_ERROR_NONE */
-  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_true, &enError); 
-  
-  /* after this call: nCount is 2; enError set in MDZ_ERROR_NONE */
-  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, mdz_true, &enError); 
+  enCompareResult = mdz_ansi_alg_compare(pcBuffer, nSize, 0, "678", 3, mdz_true, &enError);
+  assert(MDZ_ANSI_COMPARE_EQUAL == enCompareResult);
+  assert(MDZ_ERROR_NONE == enError);
+
+  nCount = mdz_ansi_alg_count(pcBuffer, 0, nSize - 1, "6", 1, mdz_true, &enError);
+  assert(2 == nCount);
+  assert(MDZ_ERROR_NONE == enError);
 
   return 0;
 }
