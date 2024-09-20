@@ -1,4 +1,4 @@
-**NOTE:** All 0.x releases are kind of "alpha-versions" without expectations of interface backward-compatibility.
+**NOTE:** All 0.x releases are kind of "alpha-versions" without expectations of API backward-compatibility.
 
 ## Table of Contents
 [mdz_ansi_alg Overview](#mdz_ansi-Overview)<br>
