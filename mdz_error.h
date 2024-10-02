@@ -86,7 +86,32 @@ enum mdz_error
   /**
    * Data and Items overlap
    */
-  MDZ_ERROR_OVERLAP /* = 13 */
+  MDZ_ERROR_OVERLAP /* = 13 */,
+
+  /**
+   * Memory allocation function is not set
+   */
+  MDZ_ERROR_ALLOC_FUNC /* = 14 */,
+
+  /**
+  * Memory re-allocation function is not set
+  */
+  MDZ_ERROR_REALLOC_FUNC /* = 15 */,
+
+  /**
+   * Memory free function is not set
+   */
+  MDZ_ERROR_FREE_FUNC /* = 16 */,
+
+  /**
+  * Memory allocation error
+  */
+  MDZ_ERROR_ALLOCATION /* = 17 */,
+
+  /**
+  * Container is attached
+  */
+  MDZ_ERROR_ATTACHED /* = 18 */
 };
 
 #endif

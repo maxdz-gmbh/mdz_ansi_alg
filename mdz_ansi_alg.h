@@ -72,7 +72,7 @@ extern "C"
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
    * MDZ_ERROR_BIGLEFT    - nLeftPos > Size
    * MDZ_ERROR_BIGCOUNT   - Size + nCount > nDataCapacity
-   * MDZ_ERROR_OVERLAP    - [pcData .. pcData + Size + nCount] area and pcItems overlap
+   * MDZ_ERROR_OVERLAP    - [pcData; pcData + Size + nCount] area and pcItems overlap
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_insert(char* pcData, size_t* pnDataSize, size_t nDataCapacity, size_t nLeftPos, const char* pcItems, size_t nCount);
@@ -112,7 +112,7 @@ extern "C"
    * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA        - pcData is NULL
    * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
    * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
    * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
@@ -154,7 +154,7 @@ extern "C"
    * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA        - pcData is NULL
    * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
    * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
    * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
@@ -177,7 +177,7 @@ extern "C"
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
    * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
@@ -199,7 +199,7 @@ extern "C"
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
    * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
@@ -221,7 +221,7 @@ extern "C"
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
    * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
@@ -243,7 +243,7 @@ extern "C"
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
    * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
@@ -383,7 +383,7 @@ extern "C"
    * MDZ_ERROR_DATA        - pcData is NULL
    * MDZ_ERROR_SIZE        - Size is 0 (empty string)
    * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
    * MDZ_ERROR_BIGLEFT     - nLeftPos >= Size
    * MDZ_ERROR_BIGCOUNT    - nLeftPos + nCount > Size
    * MDZ_ERROR_NONE        - function succeeded
@@ -405,7 +405,7 @@ extern "C"
    * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA        - pcData is NULL
    * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is NULL
+   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
    * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
    * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
    * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
