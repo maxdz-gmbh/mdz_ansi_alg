@@ -10,6 +10,7 @@
  * mdz ansi comparison result enum for different mdz libraries
  *
  */
+
 #ifndef MDZ_ANSI_COMPARE_RESULT_H
 #define MDZ_ANSI_COMPARE_RESULT_H
 

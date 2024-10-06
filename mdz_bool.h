@@ -10,6 +10,7 @@
  * mdz_bool type for different mdz libraries
  *
  */
+
 #ifndef MDZ_BOOL_H
 #define MDZ_BOOL_H
 

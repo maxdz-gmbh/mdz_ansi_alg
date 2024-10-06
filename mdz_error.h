@@ -10,6 +10,7 @@
  * mdz error enum for different mdz libraries
  *
  */
+
 #ifndef MDZ_ERROR_H
 #define MDZ_ERROR_H
 
@@ -51,7 +52,7 @@ enum mdz_error
   /**
    * Invalid size
    */
-  MDZ_ERROR_BIGSIZE /* = 6 */,
+  MDZ_ERROR_BIG_SIZE /* = 6 */,
 
   /**
    * Count is zero
@@ -61,17 +62,17 @@ enum mdz_error
   /**
    * "Count" parameter is too big
    */
-  MDZ_ERROR_BIGCOUNT /* = 8 */,
+  MDZ_ERROR_BIG_COUNT /* = 8 */,
 
   /**
    * "Left" parameter is too big
    */
-  MDZ_ERROR_BIGLEFT /* = 9 */,
+  MDZ_ERROR_BIG_LEFT /* = 9 */,
 
   /**
    * "Right" parameter is too big
    */
-  MDZ_ERROR_BIGRIGHT /* = 10 */,
+  MDZ_ERROR_BIG_RIGHT /* = 10 */,
 
   /**
    * Invalid "items" parameter
@@ -94,8 +95,8 @@ enum mdz_error
   MDZ_ERROR_ALLOC_FUNC /* = 14 */,
 
   /**
-  * Memory re-allocation function is not set
-  */
+   * Memory re-allocation function is not set
+   */
   MDZ_ERROR_REALLOC_FUNC /* = 15 */,
 
   /**
@@ -104,14 +105,30 @@ enum mdz_error
   MDZ_ERROR_FREE_FUNC /* = 16 */,
 
   /**
-  * Memory allocation error
-  */
+   * Memory allocation error
+   */
   MDZ_ERROR_ALLOCATION /* = 17 */,
 
   /**
-  * Container is attached
-  */
-  MDZ_ERROR_ATTACHED /* = 18 */
+   * Container is attached
+   */
+  MDZ_ERROR_ATTACHED /* = 18 */,
+
+  /**
+   * Container is attached
+   */
+  MDZ_ERROR_REPLACEMENT_TYPE /* = 19 */,
+
+  /**
+   * Not enough capacity for replacement
+   */
+  MDZ_ERROR_BIG_REPLACE /* = 20 */,
+
+  /**
+   * Data and Items overlap after replacement
+   */
+  MDZ_ERROR_OVERLAP_REPLACE /* = 21 */
+
 };
 
 #endif

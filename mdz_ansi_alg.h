@@ -31,6 +31,7 @@
 
 #include "mdz_bool.h"
 #include "mdz_ansi_compare_result.h"
+#include "mdz_ansi_replace_type.h"
 #include "mdz_error.h"
 
 #ifdef __cplusplus
@@ -66,13 +67,14 @@ extern "C"
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_SIZE       - pnDataSize is NULL
+   * MDZ_ERROR_BIG_SIZE   - Size > Capacity
    * MDZ_ERROR_CAPACITY   - nDataCapacity is 0 (no space for insertion) or SIZE_MAX (no space for 0-terminator)
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > Size
-   * MDZ_ERROR_BIGCOUNT   - Size + nCount > nDataCapacity
-   * MDZ_ERROR_OVERLAP    - [pcData; pcData + Size + nCount] area and pcItems overlap
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > Size
+   * MDZ_ERROR_BIG_COUNT  - Size + nCount > nDataCapacity
+   * MDZ_ERROR_OVERLAP    - pcData + pcItems memory - overlap with pcItems
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_insert(char* pcData, size_t* pnDataSize, size_t nDataCapacity, size_t nLeftPos, const char* pcItems, size_t nCount);
@@ -89,11 +91,11 @@ extern "C"
    * \param cItem     - character to find
    * \param penError  - if not NULL, error will be written there. There are following errors possible:
    * \value:
-   * MDZ_ERROR_LICENSE  - license is not initialized using mdz_ansi_alg_init() or invalid
-   * MDZ_ERROR_DATA     - pcData is NULL
-   * MDZ_ERROR_BIGRIGHT - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT  - nLeftPos > nRightPos
-   * MDZ_ERROR_NONE     - function succeeded
+   * MDZ_ERROR_LICENSE   - license is not initialized using mdz_ansi_alg_init() or invalid
+   * MDZ_ERROR_DATA      - pcData is NULL
+   * MDZ_ERROR_BIG_RIGHT - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT  - nLeftPos > nRightPos
+   * MDZ_ERROR_NONE      - function succeeded
    * \return:
    * SIZE_MAX - if cItem not found or error happened
    * Result   - 0-based position of first match
@@ -109,14 +111,14 @@ extern "C"
    * \param nCount       - number of items to find. Cannot be 0
    * \param penError     - if not NULL, error will be written there. There are following errors possible:
    * \value:
-   * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
-   * MDZ_ERROR_DATA        - pcData is NULL
-   * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
-   * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
-   * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
-   * MDZ_ERROR_NONE        - function succeeded
+   * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
+   * MDZ_ERROR_DATA       - pcData is NULL
+   * MDZ_ERROR_ITEMS      - pcItems is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_COUNT  - nCount is bigger than search area (between nLeftPos and nRightPos)
+   * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if pcItems not found or error happened
    * Result   - 0-based position of first match
@@ -131,11 +133,11 @@ extern "C"
    * \param cItem     - character to find
    * \param penError  - if not NULL, error will be written there. There are following errors possible:
    * \value:
-   * MDZ_ERROR_LICENSE  - license is not initialized using mdz_ansi_alg_init() or invalid
-   * MDZ_ERROR_DATA     - pcData is NULL
-   * MDZ_ERROR_BIGRIGHT - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT  - nLeftPos > nRightPos
-   * MDZ_ERROR_NONE     - function succeeded
+   * MDZ_ERROR_LICENSE   - license is not initialized using mdz_ansi_alg_init() or invalid
+   * MDZ_ERROR_DATA      - pcData is NULL
+   * MDZ_ERROR_BIG_RIGHT - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT  - nLeftPos > nRightPos
+   * MDZ_ERROR_NONE      - function succeeded
    * \return:
    * SIZE_MAX - if cItem not found or error happened
    * Result   - 0-based position of first match
@@ -151,14 +153,14 @@ extern "C"
    * \param nCount       - number of items to find. Cannot be 0
    * \param penError     - if not NULL, error will be written there. There are following errors possible:
    * \value:
-   * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
-   * MDZ_ERROR_DATA        - pcData is NULL
-   * MDZ_ERROR_ITEMS       - pcItems is NULL
-   * MDZ_ERROR_ZERO_COUNT  - nCount is 0
-   * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
-   * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
-   * MDZ_ERROR_NONE        - function succeeded
+   * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
+   * MDZ_ERROR_DATA       - pcData is NULL
+   * MDZ_ERROR_ITEMS      - pcItems is NULL
+   * MDZ_ERROR_ZERO_COUNT - nCount is 0
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_COUNT  - nCount is bigger than search area (between nLeftPos and nRightPos)
+   * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if pcItems not found or error happened
    * Result   - 0-based position of first match
@@ -178,8 +180,8 @@ extern "C"
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if no item of pcItems found or error happened
@@ -200,8 +202,8 @@ extern "C"
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if no item of pcItems found or error happened
@@ -222,8 +224,8 @@ extern "C"
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if no item of pcItems found or error happened
@@ -244,8 +246,8 @@ extern "C"
    * MDZ_ERROR_DATA       - pcData is NULL
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded
    * \return:
    * SIZE_MAX - if no item of pcItems found or error happened
@@ -270,8 +272,8 @@ extern "C"
    * MDZ_ERROR_ZERO_SIZE  - Size is 0 (string is empty)
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGLEFT    - nLeftPos >= Size
-   * MDZ_ERROR_BIGCOUNT   - nLeftPos + nCount > Size
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos >= Size
+   * MDZ_ERROR_BIG_COUNT  - nLeftPos + nCount > Size
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_removeFrom(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nCount);
@@ -284,6 +286,7 @@ extern "C"
    * \param nRightPos  - 0-based end position to remove item(s) up to. Use Size-1 to search till the end of string
    * \param pcItems    - items to remove. Cannot be NULL
    * \param nCount     - number of item(s) to remove. Cannot be 0
+   * \param bFromLeft  - mdz_true if search for items to remove from left side, otherwise from right
    * \return:
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
@@ -292,12 +295,12 @@ extern "C"
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos >= Size
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
-   * MDZ_ERROR_BIGCOUNT   - nCount is bigger than search area (between nLeftPos and nRightPos)
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos >= Size
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_COUNT  - nCount is bigger than search area (between nLeftPos and nRightPos)
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
-  enum mdz_error mdz_ansi_alg_remove(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount);
+  enum mdz_error mdz_ansi_alg_remove(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount, mdz_bool bFromLeft);
 
   /**
    * Remove items which are contained in pcItems from left, until first non-contained in pcItems item is reached.
@@ -315,8 +318,8 @@ extern "C"
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos >= Size
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos >= Size
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_trimLeft(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount);
@@ -337,8 +340,8 @@ extern "C"
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos >= Size
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos >= Size
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_trimRight(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount);
@@ -347,10 +350,10 @@ extern "C"
    * Remove items which are contained in pcItems from left and from right, until first non-contained in pcItems item is reached.
    * \param pcData     - pointer to string. It should end with 0-terminator
    * \param pnDataSize - pointer to current Size. If removal succeed, new size is returned here
-   * \param nLeftPos - 0-based start position to trim item(s) from left. Use 0 to trim from the beginning of string
-   * \param nRightPos - 0-based start position to trim item(s) from right. Use Size-1 to trim from the end of string
-   * \param pcItems   - items to trim. Cannot be NULL
-   * \param nCount    - number of items to trim. Cannot be 0
+   * \param nLeftPos   - 0-based start position to trim item(s) from left. Use 0 to trim from the beginning of string
+   * \param nRightPos  - 0-based start position to trim item(s) from right. Use Size-1 to trim from the end of string
+   * \param pcItems    - items to trim. Cannot be NULL
+   * \param nCount     - number of items to trim. Cannot be 0
    * \return:
    * MDZ_ERROR_LICENSE    - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA       - pcData is NULL
@@ -359,8 +362,8 @@ extern "C"
    * MDZ_ERROR_TERMINATOR - there is no 0-terminator in the end of pcData ([Size] position)
    * MDZ_ERROR_ITEMS      - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT - nCount is 0
-   * MDZ_ERROR_BIGRIGHT   - nRightPos >= Size
-   * MDZ_ERROR_BIGLEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_RIGHT  - nRightPos >= Size
+   * MDZ_ERROR_BIG_LEFT   - nLeftPos > nRightPos
    * MDZ_ERROR_NONE       - function succeeded, new size is written in pnDataSize
    */
   enum mdz_error mdz_ansi_alg_trim(char* pcData, size_t* pnDataSize, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount);
@@ -384,8 +387,8 @@ extern "C"
    * MDZ_ERROR_SIZE        - Size is 0 (empty string)
    * MDZ_ERROR_ITEMS       - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT  - nCount is 0
-   * MDZ_ERROR_BIGLEFT     - nLeftPos >= Size
-   * MDZ_ERROR_BIGCOUNT    - nLeftPos + nCount > Size
+   * MDZ_ERROR_BIG_LEFT    - nLeftPos >= Size
+   * MDZ_ERROR_BIG_COUNT   - nLeftPos + nCount > Size
    * MDZ_ERROR_NONE        - function succeeded
    * \return:
    * MDZ_COMPARE_EQUAL or MDZ_COMPARE_NONEQUAL - Result of comparison
@@ -400,21 +403,55 @@ extern "C"
    * \param pcItems          - items to find. Cannot be NULL
    * \param nCount           - number of items to find. Cannot be 0
    * \param bAllowOverlapped - mdz_true if overlapped substrings should be counted, otherwise mdz_false
+   * \param bFromLeft        - mdz_true if search for items to count from left side, otherwise from right
    * \param penError         - if not NULL, error will be written there. There are following errors possible:
    * \value:
    * MDZ_ERROR_LICENSE     - license is not initialized using mdz_ansi_alg_init() or invalid
    * MDZ_ERROR_DATA        - pcData is NULL
    * MDZ_ERROR_ITEMS       - pcItems is NULL
    * MDZ_ERROR_ZERO_COUNT  - nCount is 0
-   * MDZ_ERROR_BIGRIGHT    - nRightPos is SIZE_MAX
-   * MDZ_ERROR_BIGLEFT     - nLeftPos > nRightPos
-   * MDZ_ERROR_BIGCOUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
+   * MDZ_ERROR_BIG_RIGHT   - nRightPos is SIZE_MAX
+   * MDZ_ERROR_BIG_LEFT    - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_COUNT    - nCount is bigger than search area (between nLeftPos and nRightPos)
    * MDZ_ERROR_NONE        - function succeeded
    * \return:
    * SIZE_MAX - if error happened
    * Result   - count of substring occurences. 0 if not found
    */
-  size_t mdz_ansi_alg_count(const char* pcData, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount, mdz_bool bAllowOverlapped, enum mdz_error* penError);
+  size_t mdz_ansi_alg_count(const char* pcData, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount, mdz_bool bAllowOverlapped, mdz_bool bFromLeft, enum mdz_error* penError);
+
+  /**
+   * Replace every occurence of pcItemsBefore with pcItemsAfter. There should be enough Capacity for replacing data.
+   * \param pcData            - pointer to string
+   * \param pnDataSize        - pointer to current Size. If replacement succeed, new size is returned here
+   * \param nDataCapacity     - maximal capacity of pcData buffer. nDataCapacity does not include 0-terminator byte, thus pcData buffer should be at least 1 byte bigger than nDataCapacity
+   * \param nLeftPos          - 0-based start position to search for replace from. Use 0 to search from the beginning of string
+   * \param nRightPos         - 0-based end position to search for replace up to. Use Size-1 or SIZE_MAX to seach till the end of string
+   * \param pcItemsBefore     - items to find. Cannot be NULL
+   * \param nCountBefore      - number of items to find. Cannot be 0
+   * \param pcItemsAfter      - pointer to items to replace with. Can be NULL
+   * \param nCountAfter       - number of items to replace. Can be 0
+   * \param bFromLeft         - mdz_true if search for items to replace from left side, otherwise from right
+   * \param enReplacementType - type of replacement when nCountAfter > nCountBefore (thus Size is growing). For now only MDZ_ANSI_REPLACE_DUAL is supported (please refer to description of mdz_ansi_replace_type enum)
+   * \return:
+   * MDZ_ERROR_LICENSE         - license is not initialized using mdz_ansi_alg_init() or invalid
+   * MDZ_ERROR_DATA            - pcData is NULL
+   * MDZ_ERROR_SIZE            - pnDataSize is NULL
+   * MDZ_ERROR_CAPACITY        - nDataCapacity is 0 (no space for insertion) or SIZE_MAX (no space for 0-terminator)
+   * MDZ_ERROR_BIG_SIZE        - Size > Capacity
+   * MDZ_ERROR_ZERO_SIZE       - Size is 0 (string is empty)
+   * MDZ_ERROR_TERMINATOR      - there is no 0-terminator in the end of pcData ([Size] position)
+   * MDZ_ERROR_ITEMS           - pcItemsBefore is NULL
+   * MDZ_ERROR_ZERO_COUNT      - nCountBefore is 0
+   * MDZ_ERROR_BIG_RIGHT       - nRightPos >= Size
+   * MDZ_ERROR_BIG_LEFT        - nLeftPos > nRightPos
+   * MDZ_ERROR_BIG_COUNT       - nCount is bigger than search area (between nLeftPos and nRightPos)
+   * MDZ_ERROR_OVERLAP         - pcData overlaps with pcItemsBefore, or pcData overlaps with pcItemsAfter
+   * MDZ_ERROR_BIG_REPLACE     - new Size after replacement > Capacity
+   * MDZ_ERROR_OVERLAP_REPLACE - pcData after replacement - overlaps with pcItemsBefore, or pcData after replacement - overlaps with pcItemsAfter
+   * MDZ_ERROR_NONE            - function succeeded
+   */
+  enum mdz_error mdz_ansi_alg_replace(char* pcData, size_t* pnDataSize, size_t nDataCapacity, size_t nLeftPos, size_t nRightPos, const char* pcItemsBefore, size_t nCountBefore, const char* pcItemsAfter, size_t nCountAfter, mdz_bool bFromLeft, enum mdz_ansi_replace_type enReplacementType);
 
 #ifdef __cplusplus
 }
