@@ -25,14 +25,9 @@ enum mdz_ansi_replace_type
   MDZ_ANSI_REPLACE_DUAL = 0,
 
   /**
-   * Single pass. 1st pass for replacement from string beginning. If there is not enough capacity - stop, without partiar replace and without string original state restore
+   * Single pass. 1st pass for replacement. If there is not enough capacity and no realloc function - stop, without partial replace and without string original state restore
    */
-  MDZ_ANSI_REPLACE_STRAIGHT /* = 1 */,
-
-  /**
-   * Same as MDZ_ANSI_REPLACE_STRAIGHT, but replacing starts from string back
-   */
-  MDZ_ANSI_REPLACE_STRAIGHT_BACK /* = 2 */
+  MDZ_ANSI_REPLACE_STRAIGHT /* = 1 */
 };
 
 #endif
