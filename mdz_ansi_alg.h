@@ -55,6 +55,10 @@ extern "C"
   mdz_bool mdz_ansi_alg_init(const unsigned long* pnFirstNameHash, const unsigned long* pnLastNameHash, const unsigned long* pnEmailHash, const unsigned long* pnLicenseHash);
 
   /**
+   * \defgroup Insert/remove functions
+   */
+
+  /**
    * Insert pcItems into pcData from nLeftPos position. pcData and pcItems cannot overlap. New size is returned in pnDataSize.
    * Size and capacity    - do not include 0-terminator; thus size and capacity of empty string with no free space are 0
    * \param pcData        - pointer to string. It should end with 0-terminator and have enough capacity for insertion of pcItems
@@ -256,7 +260,7 @@ extern "C"
   size_t mdz_ansi_alg_lastNotOf(const char* pcData, size_t nLeftPos, size_t nRightPos, const char* pcItems, size_t nCount, enum mdz_error* penError);
 
   /**
-   * \defgroup Remove functions
+   * \defgroup Insert/remove functions
    */
 
   /**
