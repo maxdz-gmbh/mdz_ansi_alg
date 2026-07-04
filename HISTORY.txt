@@ -1,0 +1,76 @@
+04.07.2026 (sat)
+----------------
+
+Removed binaries from GitHub
+
+25.11.2024: Release 0.4
+-----------------------
+
+Added functions:
+- mdz_ansi_16_append
+
+Modified functions:
+If nCount is 0, nCount is calculated as length of pcItems until 0-terminator.
+- mdz_ansi_alg_insert
+- mdz_ansi_alg_find
+- mdz_ansi_alg_rfind
+- mdz_ansi_alg_firstOf
+- mdz_ansi_alg_firstNotOf
+- mdz_ansi_alg_lastOf
+- mdz_ansi_alg_lastNotOf
+- mdz_ansi_alg_removeFrom
+- mdz_ansi_alg_remove
+- mdz_ansi_alg_trimLeft
+- mdz_ansi_alg_trimRight
+- mdz_ansi_alg_trim
+- mdz_ansi_alg_compare
+- mdz_ansi_alg_count
+- mdz_ansi_alg_replace
+
+08.10.2024: Release 0.3
+-----------------------
+
+Added functions:
+- mdz_ansi_16_reverse
+
+Modified functions:
+- mdz_ansi_16_replace - added implementation of MDZ_ANSI_REPLACE_STRAIGHT
+
+06.10.2024: Release 0.2
+-----------------------
+
+Added functions:
+
+- mdz_ansi_alg_replace
+
+Modified functions:
+
+- mdz_ansi_alg_count  - added counting from right side
+- mdz_ansi_alg_remove - added removing from right side
+
+09.09.2024: Release 0.1
+-----------------------
+
+Added functions:
+
+- mdz_ansi_alg_init
+
+- mdz_ansi_alg_insert
+
+- mdz_ansi_alg_findSingle
+- mdz_ansi_alg_find
+- mdz_ansi_alg_rfindSingle
+- mdz_ansi_alg_rfind
+- mdz_ansi_alg_firstOf
+- mdz_ansi_alg_firstNotOf
+- mdz_ansi_alg_lastOf
+- mdz_ansi_alg_lastNotOf
+
+- mdz_ansi_alg_removeFrom
+- mdz_ansi_alg_remove
+- mdz_ansi_alg_trimLeft
+- mdz_ansi_alg_trimRight
+- mdz_ansi_alg_trim
+  
+- mdz_ansi_alg_compare  
+- mdz_ansi_alg_count
