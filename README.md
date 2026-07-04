@@ -83,16 +83,15 @@ Following tests are executed:
 
 ## mdz_ansi_alg Usage
 
-**Test license generation:** - in order to get free test-license, please proceed to our Shop page [maxdz Shop] and register an account. After registration you will be able to obtain free 30-days test-licenses for our products using "Obtain for free" button. 
-Test license data should be used in *mdz_ansi_alg_init()* call for library initialization.
+**Test license generation:** please contact us for retrieving binaries and free test-license. It is decided on case-by-case basis.
+<br/>Test license data should be used in *mdz_ansi_alg_init()* call for library initialization.
 
-**NOTE:** All 0.x releases are kind of "beta-versions" and can be used 1) only with test-license (during test period of 30 days, with necessity to re-generate license for the next 30 days test period) and 2) without expectations of interface backward-compatibility.
+**NOTE:** All 0.x releases are kind of "beta-versions" and can be used 1) only with test-license (during test period, with necessity to re-generate license for the next test period) and 2) without expectations of interface backward-compatibility.
 
 [mdz_ansi_alg Wiki]: https://github.com/maxdz-gmbh/mdz_ansi_alg/wiki
 [Glib]: https://en.wikipedia.org/wiki/GLib
 [STL]: https://en.wikipedia.org/wiki/Standard_Template_Library
 [Performance Comparison]: #performance-comparison
-[maxdz Shop]: https://maxdz.com/shop.php
 
 #### Code Example
 
